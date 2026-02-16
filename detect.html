@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Valentine Week Detector 💘</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 100px;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            color: white;
+        }
+        h1 {
+            font-size: 40px;
+        }
+        p {
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>💘 Valentine Week Checker 💘</h1>
+<p id="result"></p>
+
+<script>
+    const today = new Date();
+    const month = today.getMonth() + 1; // February = 2
+    const date = today.getDate();
+
+    let message = "Today is a normal beautiful day ✨";
+
+    if (month === 2) {
+        switch(date) {
+            case 7:
+                message = "🌹 Rose Day";
+                break;
+            case 8:
+                message = "💍 Propose Day";
+                break;
+            case 9:
+                message = "🍫 Chocolate Day";
+                break;
+            case 10:
+                message = "🧸 Teddy Day";
+                break;
+            case 11:
+                message = "💖 Promise Day";
+                break;
+            case 12:
+                message = "🤗 Hug Day";
+                break;
+            case 13:
+                message = "😘 Kiss Day";
+                break;
+            case 14:
+                message = "💘 Valentine's Day 💘";
+                break;
+        }
+    }
+
+    document.getElementById("result").innerHTML = message;
+</script>
+
+</body>
+</html>

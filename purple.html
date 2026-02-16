@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Our Eternal Story 💜</title>
+
+<style>
+body{
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  background:linear-gradient(to bottom,#0f0c29,#302b63,#24243e);
+  color:white;
+  text-align:center;
+  overflow-x:hidden;
+}
+
+h1{
+  padding:30px;
+  font-size:34px;
+  text-shadow:0 0 15px #fff;
+}
+
+.section{
+  margin:60px auto;
+  width:85%;
+  padding:30px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(10px);
+  box-shadow:0 10px 30px rgba(0,0,0,0.4);
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+
+.section.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.star{
+  position:absolute;
+  width:2px;
+  height:2px;
+  background:white;
+  border-radius:50%;
+  animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+  from{opacity:0.3;}
+  to{opacity:1;}
+}
+
+.heart{
+  position:absolute;
+  font-size:14px;
+  opacity:0.6;
+  animation:floatUp linear infinite;
+}
+
+@keyframes floatUp{
+  0%{transform:translateY(100vh);}
+  100%{transform:translateY(-10vh);}
+}
+
+.ring{
+  font-size:70px;
+  cursor:pointer;
+  transition:0.5s;
+}
+.ring.open{
+  transform:scale(1.4);
+  text-shadow:0 0 30px #ffccff;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Our Love Story Under The Same Sky 💜</h1>
+
+<div class="section">🌌 The night sky where our story began… destiny wrote our names in stars.</div>
+
+<div class="section">⛪ Our First Kovil Trip — I didn’t ask God for anything… because I already had you 🥹</div>
+C
+<div class="section">🏍️ That Night Bike Ride — namba neram aniku pathu vara bus avlo late ah vanduchu ,chicken vangitu namba bike la ponathu huggies,kisses.</div>
+
+<div class="section">🌹 My Birthday Surprise — aniku nijam ah expect panama vanthu mallipoo rose athum verum poo that flower shows your love towards me en thangameyyyy.</div>
+
+<div class="section">📞 Our First video Call — evng full ah audio call pesitu kulichitu namba fav color purple tshirt la that much shy oda face marachii pesuna video still feels like yesterday maari irukuuu forever beautiful memory la ithellam.</div>
+
+<div class="section">💬 The First “I Love You” — My heart skipped, but my soul felt calm you are only one person who theft my heart venna mavaneeee.</div>
+
+<div class="section">📸 Our First Photo — Two smiles, one forever memory enna tha ooruke leo day ah irunthalum namaku athu kiss day,love ku rendu perum kannu pathu pesi avloooo memoriesss laaaaaa .</div>
+
+<div class="section">🎁 The First Gift — Small thing, big emotion,unexpected ah ground la poitu irukum pothu nee eduthu potu vita antha ring and nee sonna namba ini husband and wife ithan naamba wedding ring nu still now atha naa kalatama en kai laa potu irukennnn mamaa.</div>
+
+<div class="section">😡 Our First Fight — Tears fell… but love won,avlo sandai konja naal laiye avlo alugai oru stage ku mela na venam nu solla nee enakaga aluthuuu avlooo convince pannaa athealammm ipo nenachalum en face la smile control panna mudiyathu.</div>
+
+<div class="section">🤝 Patch Up Moment — Hug tighter than before insta chat la mallipooo vangitu vantha kuuduthu diary milk rosemilk lam vangi kuduthu soryy krta .</div>
+
+<div class="section">🥺 The First Time I Cried Because of You — Because you matter that much,kandipa soluven na en life avlo aludhan apdi nah athu unala matum ehhhh.</div>
+
+<div class="section">😏 The First Jealous Moment — Cute possessiveness I secretly loved,en picture na pathale pakka kudathy nu sandaiku varuvilaa nee uanku athealam nyabgam irukaa.</div>
+
+<div class="section">
+💜 What You Love About Me 💜 <br><br>
+😊 My Smile that melts you siripazhagi nu per laam vachii enna pathu rasichiyee nenu <br>
+🎨 My Favorite Color that reminds you of me black dress la nadantha coincidence memoriesss <br>
+✨ The Dimple on my cheek <br>
+🚶‍♀️ My Walking Style you tease about suthu aatitu nadapen apdi soluva laaaaa <br>
+🥰 My Cute Reactions and Drama
+</div>
+
+<div class="section">
+<h2>💍 Forever?</h2>
+<div class="ring" onclick="openRing()">💍</div>
+<div id="proposalText"></div>
+</div>
+
+<script>
+
+/* Stars */
+for(let i=0;i<120;i++){
+  const star=document.createElement("div");
+  star.classList.add("star");
+  star.style.top=Math.random()*100+"vh";
+  star.style.left=Math.random()*100+"vw";
+  star.style.animationDuration=(1+Math.random()*3)+"s";
+  document.body.appendChild(star);
+}
+
+/* Floating Hearts */
+function createHeart(){
+  const heart=document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerText="💜";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.fontSize=(10+Math.random()*15)+"px";
+  heart.style.animationDuration=(5+Math.random()*5)+"s";
+  document.body.appendChild(heart);
+  setTimeout(()=>{heart.remove();},9000);
+}
+setInterval(createHeart,400);
+
+/* Scroll Reveal */
+const sections=document.querySelectorAll(".section");
+window.addEventListener("scroll",()=>{
+  sections.forEach(sec=>{
+    const top=sec.getBoundingClientRect().top;
+    if(top<window.innerHeight-100){
+      sec.classList.add("show");
+    }
+  });
+});
+
+/* Proposal */
+function openRing(){
+  document.querySelector(".ring").classList.add("open");
+  const text="From every smile to every tear… from temple bells to midnight rides… I choose you. Forever. 💜";
+  let i=0;
+  document.getElementById("proposalText").innerHTML="";
+  function type(){
+    if(i<text.length){
+      document.getElementById("proposalText").innerHTML+=text.charAt(i);
+      i++;
+      setTimeout(type,40);
+    }
+  }
+  type();
+}
+
+</script>
+
+</body>
+</html>

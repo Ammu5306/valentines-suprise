@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Be My Valentine 💖</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 100px;
+        }
+        h1 {
+            color: white;
+            font-size: 40px;
+        }
+        p {
+            font-size: 20px;
+            color: white;
+            width: 70%;
+            margin: auto;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .yes {
+            background-color: #ff4d6d;
+            color: white;
+        }
+        .no {
+            background-color: white;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+<h1 id="receiver">My Love 💕</h1>
+
+<p id="letter">
+You are the best thing that happened in my life.  
+I feel complete when I am with you.  
+Will you be mine forever? 💍
+</p>
+
+<button class="yes" onclick="sayYes()">Yes 💖</button>
+<button class="no" onclick="sayNo()">No 😢</button>
+
+<script>
+function sayYes() {
+    document.body.innerHTML = "<h1 style='color:white;'>Yayyyy 💖 I love you foreverrrr 😘✨</h1>";
+}
+
+function sayNo() {
+    alert("No option illa 😜 You are mine only 💕");
+}
+</script>
+
+</body>
+</html>

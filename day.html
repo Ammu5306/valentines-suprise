@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Today Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 100px;
+            background: linear-gradient(to right, #a18cd1, #fbc2eb);
+            color: white;
+        }
+        h1 {
+            font-size: 40px;
+        }
+        p {
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>📅 Today Details</h1>
+<p id="today"></p>
+
+<script>
+    const today = new Date();
+
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const months = ["January", "February", "March", "April", "May", "June",
+                    "July", "August", "September", "October", "November", "December"];
+
+    const dayName = days[today.getDay()];
+    const date = today.getDate();
+    const monthName = months[today.getMonth()];
+    const year = today.getFullYear();
+
+    document.getElementById("today").innerHTML =
+        dayName + ", " + monthName + " " + date + ", " + year;
+</script>
+
+</body>
+</html>

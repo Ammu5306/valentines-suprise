@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Forever Us 💍</title>
+
+<style>
+body{
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  background: linear-gradient(135deg,#ff758c,#ff7eb3);
+  color:white;
+  text-align:center;
+  overflow:hidden;
+}
+
+.container{
+  padding:20px;
+}
+
+.box{
+  background: rgba(255,255,255,0.15);
+  padding:20px;
+  border-radius:20px;
+  margin:20px auto;
+  width:85%;
+  backdrop-filter: blur(5px);
+}
+
+.ring{
+  font-size:60px;
+  cursor:pointer;
+  transition:0.5s;
+}
+
+.open{
+  transform:scale(1.5) rotate(20deg);
+}
+
+.slideshow img{
+  width:250px;
+  height:300px;
+  border-radius:20px;
+  object-fit:cover;
+  display:none;
+  box-shadow:0 10px 20px rgba(0,0,0,0.3);
+}
+
+.typing{
+  font-size:20px;
+  margin-top:15px;
+  min-height:60px;
+}
+
+.counter{
+  font-size:22px;
+  font-weight:bold;
+  margin-top:10px;
+}
+
+/* Floating Hearts */
+.heart{
+  position:absolute;
+  font-size:20px;
+  animation:floatUp 6s linear infinite;
+}
+
+@keyframes floatUp{
+  0%{transform:translateY(100vh);opacity:1;}
+  100%{transform:translateY(-10vh);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- Background Song -->
+<audio autoplay loop>
+  <source src="love.mp3" type="audio/mp3">
+</audio>
+
+<div class="container">
+
+<h1>Our Forever Journey 💖</h1>
+
+<div class="box">
+  <p>✨ First Met – August 21, 2023</p>
+  <p>💋 First Kiss – October 19, 2023</p>
+  <p>💖 Anniversary – September 17</p>
+  <div class="counter" id="daysCounter"></div>
+</div>
+
+<div class="box">
+  <h2>Click the Ring 💍</h2>
+  <div class="ring" onclick="openRing()">💍</div>
+  <div class="typing" id="typingText"></div>
+</div>
+
+<div class="box slideshow">
+  <img src="photo1.jpg">
+  <img src="photo2.jpg">
+  <img src="photo3.jpg">
+</div>
+
+</div>
+
+<script>
+
+/* Days Counter */
+function updateDays(){
+  const startDate=new Date(2023,7,21); // Aug 21 2023
+  const today=new Date();
+  const diff=today-startDate;
+  const days=Math.floor(diff/(1000*60*60*24));
+  document.getElementById("daysCounter").innerHTML=
+  "💞 Together for " + days + " beautiful days 💖";
+}
+updateDays();
+
+/* Ring Open + Typing */
+function openRing(){
+  document.querySelector(".ring").classList.add("open");
+
+  const text="From the first day I saw you, my heart chose you 🥹💖 Every smile, every kiss, every memory with you is magic ✨ I promise to love you today, tomorrow and forever 💍";
+  let i=0;
+  function typing(){
+    if(i<text.length){
+      document.getElementById("typingText").innerHTML+=text.charAt(i);
+      i++;
+      setTimeout(typing,40);
+    }
+  }
+  typing();
+}
+
+/* Slideshow */
+let slideIndex=0;
+const slides=document.querySelectorAll(".slideshow img");
+
+function showSlides(){
+  slides.forEach(img=>img.style.display="none");
+  slideIndex++;
+  if(slideIndex>slides.length){slideIndex=1;}
+  slides[slideIndex-1].style.display="block";
+  setTimeout(showSlides,3000);
+}
+showSlides();
+
+/* Floating Hearts */
+function createHeart(){
+  const heart=document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerText="💖";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.animationDuration=(3+Math.random()*3)+"s";
+  document.body.appendChild(heart);
+  setTimeout(()=>{heart.remove();},6000);
+}
+setInterval(createHeart,500);
+
+</script>
+
+</body>
+</html>

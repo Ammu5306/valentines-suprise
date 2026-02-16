@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Royal Love Universe 💜</title>
+
+<style>
+body{
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  background: radial-gradient(circle at top,#7f00ff,#3a0ca3,#240046);
+  color:white;
+  text-align:center;
+  overflow:hidden;
+}
+
+/* Glowing Title */
+h1{
+  font-size:34px;
+  animation: glow 2s infinite alternate;
+}
+@keyframes glow{
+  from{text-shadow:0 0 10px #fff;}
+  to{text-shadow:0 0 20px #ffccff,0 0 40px #d633ff;}
+}
+
+.container{padding:20px;}
+
+.box{
+  background: rgba(255,255,255,0.08);
+  padding:25px;
+  border-radius:25px;
+  margin:20px auto;
+  width:85%;
+  backdrop-filter: blur(12px);
+  box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* Love Progress Bar */
+.progress{
+  width:100%;
+  background:rgba(255,255,255,0.2);
+  border-radius:20px;
+  overflow:hidden;
+  margin-top:15px;
+}
+.progress-bar{
+  height:15px;
+  width:85%;
+  background:linear-gradient(90deg,#d633ff,#ff66cc);
+  animation:progressMove 3s ease-in-out;
+}
+@keyframes progressMove{
+  from{width:0;}
+  to{width:85%;}
+}
+
+/* Ring */
+.ring{
+  font-size:70px;
+  cursor:pointer;
+  transition:0.5s;
+}
+.ring.open{
+  transform:scale(1.5) rotate(20deg);
+  text-shadow:0 0 25px #fff,0 0 50px #ff99ff;
+}
+
+/* Slideshow */
+.slideshow img{
+  width:260px;
+  height:320px;
+  border-radius:25px;
+  object-fit:cover;
+  display:none;
+  box-shadow:0 10px 25px rgba(0,0,0,0.5);
+}
+
+/* Floating Hearts */
+.heart{
+  position:absolute;
+  font-size:14px;
+  opacity:0.8;
+  animation:floatUp linear infinite;
+}
+@keyframes floatUp{
+  0%{transform:translateY(100vh);opacity:1;}
+  100%{transform:translateY(-10vh);opacity:0;}
+}
+
+/* Cursor Trail */
+.trail{
+  position:absolute;
+  pointer-events:none;
+  font-size:18px;
+  animation:fade 1s forwards;
+}
+@keyframes fade{
+  to{opacity:0;transform:scale(1.5);}
+}
+
+/* Love Quotes */
+.quote{
+  font-style:italic;
+  margin-top:10px;
+  min-height:40px;
+}
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+  <source src="love.mp3" type="audio/mp3">
+</audio>
+
+<div class="container">
+
+<h1>Our Royal Love Universe 💜</h1>
+
+<div class="box">
+  <p>✨ First Met – Aug 21, 2023</p>
+  <p>💋 First Kiss – Oct 19, 2023</p>
+  <p>💖 Anniversary – Sept 17</p>
+
+  <div class="progress">
+    <div class="progress-bar"></div>
+  </div>
+  <p>Relationship Strength: 85% Growing Forever 💜</p>
+
+  <div class="quote" id="quote"></div>
+</div>
+
+<div class="box">
+  <h2>Click the Ring 💍</h2>
+  <div class="ring" onclick="openRing()">💍</div>
+  <div id="typingText"></div>
+</div>
+
+<div class="box slideshow">
+  <img src="photo1.jpg">
+  <img src="photo2.jpg">
+  <img src="photo3.jpg">
+</div>
+
+</div>
+
+<script>
+
+/* Typing */
+function openRing(){
+  document.querySelector(".ring").classList.add("open");
+  const text="From the first moment, my soul recognized yours 🥹💜 I promise forever 💍✨";
+  let i=0;
+  document.getElementById("typingText").innerHTML="";
+  function type(){
+    if(i<text.length){
+      document.getElementById("typingText").innerHTML+=text.charAt(i);
+      i++;
+      setTimeout(type,40);
+    }
+  }
+  type();
+}
+
+/* Slideshow */
+let index=0;
+const slides=document.querySelectorAll(".slideshow img");
+function showSlides(){
+  slides.forEach(img=>img.style.display="none");
+  index++;
+  if(index>slides.length){index=1;}
+  slides[index-1].style.display="block";
+  setTimeout(showSlides,3000);
+}
+showSlides();
+
+/* Floating Hearts */
+function createHeart(){
+  const heart=document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerText="💜";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.fontSize=(10+Math.random()*15)+"px";
+  heart.style.animationDuration=(4+Math.random()*4)+"s";
+  document.body.appendChild(heart);
+  setTimeout(()=>{heart.remove();},8000);
+}
+setInterval(createHeart,150);
+
+/* Cursor Heart Trail */
+document.addEventListener("mousemove",function(e){
+  const trail=document.createElement("div");
+  trail.classList.add("trail");
+  trail.innerText="💜";
+  trail.style.left=e.pageX+"px";
+  trail.style.top=e.pageY+"px";
+  document.body.appendChild(trail);
+  setTimeout(()=>{trail.remove();},1000);
+});
+
+/* Love Quotes Auto Change */
+const quotes=[
+"You are my today and all my tomorrows 💜",
+"In your arms, I found my forever 🥹",
+"Every heartbeat whispers your name 💍",
+"Our love is written in destiny ✨"
+];
+let qIndex=0;
+function changeQuote(){
+  document.getElementById("quote").innerText=quotes[qIndex];
+  qIndex=(qIndex+1)%quotes.length;
+}
+setInterval(changeQuote,3000);
+changeQuote();
+
+</script>
+
+</body>
+</html>
